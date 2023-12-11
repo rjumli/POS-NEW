@@ -18,7 +18,7 @@ Route::post('/login', [App\Http\Controllers\AuthController::class, 'loginUser'])
 Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logoutUser']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return new UserResource($request->user());
+    return new UserApiResource($request->user());
 });
 
 Route::get('/search', [App\Http\Controllers\ApiController::class, 'search']);

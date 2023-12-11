@@ -17,7 +17,7 @@ class UserApiResource extends JsonResource
         return [
             'id' => $this->id,
             'email' => $this->email,
-            'avatar' => 'https://kradjumli.com/images/avatars/administrator.jpg',
+            'avatar' => 'https://genpos8.com/images/avatars/administrator.jpg',
             'role' => ($this->is_admin) ? 'Administrator' : 'User',
             'is_active' => $this->is_active,
             'name' => ucwords(strtolower($this->name)),

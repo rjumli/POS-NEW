@@ -44,8 +44,8 @@
     <Create :suppliers="suppliers" :products="products" :units="units" :dropdowns="dropdowns" @message="fetch()" ref="create"/>
 </template>
 <script>
-import Create from '../Orders/Create.vue';
-import View from '../Orders/View.vue';
+import Create from '../Stocking/Orders/Create.vue';
+import View from '../Stocking/Orders/View.vue';
 export default {
     props: ['dropdowns','orders','suppliers','products','units'],
     components: { View, Create },

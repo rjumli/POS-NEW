@@ -98,7 +98,7 @@ defineProps({
 });
 
 const form = useForm({
-    email: 'kradjumli@gmail.com',
+    email: 'admin@genpos8.com',
     password: '123456789',
     remember: false
 });

@@ -17,7 +17,7 @@ class PackageController extends Controller
                return $this->lists($request);
             break;
             default : 
-            return inertia('Modules/Packages/Index');
+            return inertia('Modules/Inventory/Packages/Index');
         }
     }
 

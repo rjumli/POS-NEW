@@ -47,8 +47,8 @@
                                     <span :class="'badge '+list.status.color">{{list.status.name}}</span>
                                 </td>
                                 <td class="text-center">
-                                    <b-button v-if="list.status.name == 'Pending'" @click="openUpdate(list,index)" variant="soft-primary" v-b-tooltip.hover title="Update" size="sm" class="edit-list me-1 w-xs">Update</b-button>
-                                    <span v-else>-</span>
+                                    <!-- <b-button v-if="list.status.name == 'Pending'" @click="openUpdate(list,index)" variant="soft-primary" v-b-tooltip.hover title="Update" size="sm" class="edit-list me-1 w-xs">Update</b-button> -->
+                                    <span>-</span>
                                 </td>
                             </tr>
                         </tbody>

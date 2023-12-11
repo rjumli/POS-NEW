@@ -21,6 +21,7 @@ return new class extends Migration
             $table->decimal('discount',12,2)->default(0);
             $table->decimal('total',12,2);
             $table->string('type');
+            $table->date('warranty')->nullable();
             $table->tinyInteger('status_id')->unsigned()->index();
             $table->foreign('status_id')->references('id')->on('dropdowns')->onDelete('cascade');
             $table->integer('product_id')->unsigned()->nullable();

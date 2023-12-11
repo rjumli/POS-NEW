@@ -20,7 +20,7 @@ class OrderController extends Controller
                 return $this->view($request->all());
             break;
             default : 
-            return inertia('Modules/Orders/Index');
+            return inertia('Modules/Stocking/Orders/Index');
         }
     }
 

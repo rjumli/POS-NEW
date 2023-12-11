@@ -15,7 +15,7 @@ class CustomerController extends Controller
                return $this->lists($request);
             break;
             default : 
-            return inertia('Modules/Customers/Index');
+            return inertia('Modules/Maintenance/Customers/Index');
         }
     }
 

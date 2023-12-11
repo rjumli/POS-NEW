@@ -60,6 +60,31 @@ class SaleController extends Controller
                         $l->type = $list['type'];
                         if($list['type'] == 'Product'){
                             $l->product_id = $list['id'];
+                            if($list['has_warranty']){
+                                $warranty = $list['warranty'];
+                                $currentDate = now();
+                                $parts = explode(' ', $warranty);
+
+                                $numericValue = (int)$parts[0];
+                                $timeUnit = $parts[1];
+// dd($timeUnit);
+                                switch($timeUnit){
+                                    case 'Years':
+                                        $warranty_date = ($numericValue == 1) ? $currentDate->modify('+1 year') :  $currentDate->modify('+'.$numericValue.' years');
+                                    break;
+                                    case 'Months':
+                                        $warranty_date = ($numericValue == 1) ? $currentDate->modify('+1 month') :  $currentDate->modify('+'.$numericValue.' months');
+                                    break;
+                                    case 'Weeks':
+                                        $warranty_date = ($numericValue == 1) ? $currentDate->modify('+1 week') :  $currentDate->modify('+'.$numericValue.' weeks');
+                                    break;
+                                    case 'Days':
+                                        $warranty_date = ($numericValue == 1) ? $currentDate->modify('+1 day') :  $currentDate->modify('+'.$numericValue.' days');
+                                    break;
+                                }
+
+                                $l->warranty = $warranty_date;
+                            }
                         }else{
                             $l->package_id = $list['id'];
                         }

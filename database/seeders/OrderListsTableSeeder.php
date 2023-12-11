@@ -21,69 +21,27 @@ class OrderListsTableSeeder extends Seeder
         \DB::table('order_lists')->insert(array (
             0 => 
             array (
+                'created_at' => '2023-12-11 19:20:55',
                 'id' => 1,
-                'price' => '50.00',
-                'quantity' => 100,
-                'product_id' => 1,
-                'status_id' => 8,
                 'order_id' => 1,
-                'created_at' => '2023-11-26 11:30:15',
-                'updated_at' => '2023-11-26 11:30:29',
+                'price' => '20000.00',
+                'product_id' => 1,
+                'quantity' => 5,
+                'received' => 5,
+                'status_id' => 8,
+                'updated_at' => '2023-12-11 19:22:33',
             ),
             1 => 
             array (
+                'created_at' => '2023-12-11 19:51:22',
                 'id' => 2,
-                'price' => '200.00',
-                'quantity' => 100,
-                'product_id' => 2,
-                'status_id' => 8,
-                'order_id' => 1,
-                'created_at' => '2023-11-26 11:30:15',
-                'updated_at' => '2023-11-26 11:30:36',
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'price' => '20.00',
-                'quantity' => 100,
-                'product_id' => 3,
-                'status_id' => 8,
-                'order_id' => 1,
-                'created_at' => '2023-11-26 11:30:15',
-                'updated_at' => '2023-11-26 11:50:15',
-            ),
-            3 => 
-            array (
-                'id' => 4,
-                'price' => '50.00',
-                'quantity' => 100,
-                'product_id' => 4,
-                'status_id' => 8,
-                'order_id' => 1,
-                'created_at' => '2023-11-26 11:30:15',
-                'updated_at' => '2023-11-26 11:50:19',
-            ),
-            4 => 
-            array (
-                'id' => 5,
-                'price' => '50.00',
-                'quantity' => 150,
-                'product_id' => 1,
-                'status_id' => 8,
                 'order_id' => 2,
-                'created_at' => '2023-11-26 18:00:43',
-                'updated_at' => '2023-11-26 18:23:41',
-            ),
-            5 => 
-            array (
-                'id' => 6,
-                'price' => '50.00',
+                'price' => '15000.00',
+                'product_id' => 2,
                 'quantity' => 5,
-                'product_id' => 1,
-                'status_id' => 7,
-                'order_id' => 3,
-                'created_at' => '2023-11-26 18:41:43',
-                'updated_at' => '2023-11-26 18:41:43',
+                'received' => 5,
+                'status_id' => 8,
+                'updated_at' => '2023-12-11 19:51:31',
             ),
         ));
         

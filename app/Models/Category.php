@@ -13,4 +13,9 @@ class Category extends Model
     protected $fillable = [
         'id','name','is_active'
     ];
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucwords(strtolower($value));
+    }
 }

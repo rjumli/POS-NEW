@@ -18,16 +18,22 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/home', App\Http\Controllers\HomeController::class);
     Route::resource('/customers', App\Http\Controllers\CustomerController::class);
     Route::resource('/suppliers', App\Http\Controllers\SupplierController::class);
+
     Route::resource('/products', App\Http\Controllers\ProductController::class);
+    Route::resource('/packages', App\Http\Controllers\PackageController::class);
+    Route::resource('/customer', App\Http\Controllers\CustomerReturnController::class);
+    Route::resource('/supplier', App\Http\Controllers\SupplierReturnController::class);
+
     Route::resource('/users', App\Http\Controllers\UserController::class);
     Route::resource('/orders', App\Http\Controllers\OrderController::class);
     Route::resource('/deliveries', App\Http\Controllers\DeliveryController::class);
     Route::resource('/receives', App\Http\Controllers\ReceivedController::class);
     Route::resource('/sales', App\Http\Controllers\SaleController::class);
     Route::resource('/discounts', App\Http\Controllers\DiscountController::class);
-    Route::resource('/packages', App\Http\Controllers\PackageController::class);
+    
     Route::resource('/settings', App\Http\Controllers\SettingController::class);
     Route::resource('/backups', App\Http\Controllers\BackupController::class);
+    Route::resource('/terms', App\Http\Controllers\TermController::class);
 });
 
 require __DIR__.'/auth.php';

@@ -32,4 +32,25 @@ class SaleList extends Model
     {
         return $this->belongsTo('App\Models\Package', 'package_id', 'id');
     } 
+
+    public function getWarrantyAttribute($value)
+    {
+        return date('M d, Y', strtotime($value));
+    }
+
+    public function return()
+    {
+        return $this->hasOne('App\Models\SaleListReturn', 'salelist_id');
+    } 
+
+
+    public function getUpdatedAtAttribute($value)
+    {
+        return date('M d, Y g:i a', strtotime($value));
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date('M d, Y g:i a', strtotime($value));
+    }
 }

@@ -13,20 +13,20 @@ use App\Http\Resources\ItemDiscountResource;
 class HomeController extends Controller
 {
     public function index(Request $request){
-        // ItemDiscount::where('is_active',0)->whereDate('start',now())->update(['is_active' => 1]);
-        // ItemDiscount::where('is_active',1)->whereDate('end',now())->update(['is_active' => 0]);
-        // $options = $request->options;
-        // switch($options){
-        //     case 'lists':
-        //        return $this->lists($request);
-        //     break;
-        //     default : 
-        //     return inertia('Modules/Home/Index',[
-        //         'breakdown' => $this->breakdown(),
-        //         'items' => ItemDiscountResource::collection(ItemDiscount::with('product','package','type','discount.subtype')->where('is_active',1)->get())
-        //     ]);
-        // }
-        return inertia('Modules/Sales/Index');
+        ItemDiscount::where('is_active',0)->whereDate('start',now())->update(['is_active' => 1]);
+        ItemDiscount::where('is_active',1)->whereDate('end',now())->update(['is_active' => 0]);
+        $options = $request->options;
+        switch($options){
+            case 'lists':
+               return $this->lists($request);
+            break;
+            default : 
+            return inertia('Modules/Home/Index',[
+                'breakdown' => $this->breakdown(),
+                'items' => ItemDiscountResource::collection(ItemDiscount::with('product','package','type','discount.subtype')->where('is_active',1)->get())
+            ]);
+        }
+        // return inertia('Modules/Sales/Index');
     }
 
     public function lists($request){

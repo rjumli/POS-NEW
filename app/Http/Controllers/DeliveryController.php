@@ -20,7 +20,7 @@ class DeliveryController extends Controller
                 return $this->view($request->all());
             break;
             default : 
-            return inertia('Modules/Deliveries/Index');
+            return inertia('Modules/Stocking/Deliveries/Index');
         }
     }
 

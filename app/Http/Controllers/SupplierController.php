@@ -19,7 +19,7 @@ class SupplierController extends Controller
                 return $this->names($request);
              break;
             default : 
-            return inertia('Modules/Suppliers/Index');
+            return inertia('Modules/Maintenance/Suppliers/Index');
         }
     }
 

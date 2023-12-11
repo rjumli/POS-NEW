@@ -49,8 +49,8 @@
     <New :discounts="discounts" :dropdowns="dropdowns" ref="new"/>
 </template>
 <script>
-import View from '../Discounts/View.vue';
-import New from '../Discounts/New.vue';
+import View from '../Maintenance/Discounts/View.vue';
+import New from '../Maintenance/Discounts/New.vue';
 export default {
     components: { New, View},
     props: ['discounts','dropdowns','items'],

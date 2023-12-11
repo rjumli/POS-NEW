@@ -22,52 +22,44 @@ class CategoriesTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'name' => 'Appliances',
                 'is_active' => 1,
+                'name' => 'Appliances',
             ),
             1 => 
             array (
                 'id' => 2,
-                'name' => 'Automotive Accessories',
                 'is_active' => 1,
+                'name' => 'Automotive',
             ),
             2 => 
             array (
                 'id' => 3,
-                'name' => 'Electronics ',
                 'is_active' => 1,
+                'name' => 'Electrical',
             ),
             3 => 
             array (
                 'id' => 4,
-                'name' => 'Fashions',
                 'is_active' => 1,
+                'name' => 'Hardware',
             ),
             4 => 
             array (
                 'id' => 5,
-                'name' => 'Furniture',
                 'is_active' => 1,
+                'name' => 'Houseware',
             ),
             5 => 
             array (
                 'id' => 6,
-                'name' => 'Grocery',
                 'is_active' => 1,
+                'name' => 'Tools',
             ),
             6 => 
             array (
                 'id' => 7,
-                'name' => 'Utensils
-',
                 'is_active' => 1,
-            ),
-            7 => 
-            array (
-                'id' => 8,
-                'name' => 'Construction
-',
-                'is_active' => 1,
+                'name' => 'Outdoor & Living',
             ),
         ));
         

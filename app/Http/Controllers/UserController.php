@@ -15,7 +15,7 @@ class UserController extends Controller
                return $this->lists($request);
             break;
             default : 
-            return inertia('Modules/Users/Index');
+            return inertia('Modules/Utility/Users/Index');
         }
     }
 

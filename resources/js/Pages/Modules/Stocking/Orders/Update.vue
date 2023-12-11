@@ -25,13 +25,13 @@
                         :show-labels="false">
                     </multiselect> 
                 </div>
-                <div class="col-md-6 mt-3" v-if="status.name == 'Received'">
+                <div class="col-md-6 mt-3" v-if="status.name == 'Received' || status.name == 'Incomplete'">
                     <div class="form-group">
                         <label>Quantity:<span v-if="form.errors" v-text="form.errors.quantity" class="haveerror"></span></label>
                         <input type="text" class="form-control" v-model="quantity">
                     </div>
                 </div>
-                <div class="col-md-6 mt-3" v-if="status.name == 'Received'">
+                <div class="col-md-6 mt-3" v-if="status.name == 'Received' || status.name == 'Incomplete'">
                     <div class="form-group">
                         <label>Price:<span v-if="form.errors" v-text="form.errors.price" class="haveerror"></span></label>
                         <input type="text" class="form-control" v-model="price">

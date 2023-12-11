@@ -17,7 +17,7 @@ class BackupController extends Controller
                return $this->lists($request);
             break;
             default : 
-            return inertia('Modules/Backups/Index');
+            return inertia('Modules/Utility/Backups/Index');
         }
     }
 

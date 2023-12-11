@@ -30,6 +30,7 @@
         </b-col>
 
         <b-col xl="12">
+            
             <div class="table-responsive">
                 <table class="table table-nowrap table-bordered align-middle mb-0">
                     <thead class="bg-primary">
@@ -61,6 +62,14 @@
                             </td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <td colspan="7">
+                            <div>
+                                <div class="alert alert-danger mb-xl-0" role="alert"><center><strong>No records found.</strong></center> </div>
+                            </div>
+                        </td>
+                        
+                    </tfoot>
                 </table>
                 <Pagination class="ms-2 me-2" v-if="meta" @fetch="fetch" :lists="lists.length" :links="links" :pagination="meta" />
             </div>

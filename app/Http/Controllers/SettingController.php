@@ -15,7 +15,7 @@ class SettingController extends Controller
                return $this->lists($request);
             break;
             default : 
-            return inertia('Modules/Settings/Index');
+            return inertia('Modules/Maintenance/Settings/Index');
         }
     }
 

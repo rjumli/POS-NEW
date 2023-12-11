@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Discount;
+use App\Models\Term;
 use Illuminate\Http\Request;
 use App\Http\Resources\DefaultResource;
 
-class DiscountController extends Controller
+class TermController extends Controller
 {
     public function index(Request $request){
         $options = $request->options;
@@ -15,33 +15,30 @@ class DiscountController extends Controller
                return $this->lists($request);
             break;
             default : 
-            return inertia('Modules/Maintenance/Discounts/Index');
+            return inertia('Modules/Maintenance/Terms/Index');
         }
     }
 
     public function store(Request $request){
 
         $request->validate([
-            'name' => 'sometimes|required|unique:discounts,name,'.$request->id,
-            'value' => 'sometimes|required|integer',
-            'based_id' => 'sometimes|required',
-            'type_id' => 'sometimes|required',
-            'subtype_id' => 'sometimes|required',
+            'description' => 'sometimes|required',
+            'title' => 'sometimes|required',
         ]);
 
         $data = \DB::transaction(function () use ($request){
             if($request->editable == 'true'){
-                $data = Discount::where('id',$request->id)->first();
+                $data = Term::where('id',$request->id)->first();
                 $data->update($request->except('editable'));
                 return $data;
             }else{
-                return $data = Discount::create($request->all());
+                return $data = Term::create(array_merge($request->all(),['added_by' => \Auth::user()->id]));
             }
             
         });
         $message = ($request->editable) ? 'updated' : 'created';
         return back()->with([
-            'message' => 'Discount '.$message.' successfully. Thanks',
+            'message' => 'Terms and Condition '.$message.' successfully. Thanks',
             'data' => new DefaultResource($data),
             'type' => 'bxs-check-circle',
             'color' => 'success'
@@ -50,10 +47,10 @@ class DiscountController extends Controller
 
     public function lists($request){
         $data = DefaultResource::collection(
-            Discount::when($request->keyword, function ($query, $keyword) {
+            Term::when($request->keyword, function ($query, $keyword) {
                 $query->where('name', 'LIKE', '%'.$keyword.'%');
             })
-            ->with('type','subtype','based')
+            ->with('user')
             ->orderBy('id','desc')
             ->paginate(10)
             ->withQueryString()

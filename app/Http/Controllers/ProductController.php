@@ -18,7 +18,7 @@ class ProductController extends Controller
                return $this->lists($request->all());
             break;
             default : 
-            return inertia('Modules/Products/Index');
+            return inertia('Modules/Inventory/Products/Index');
         }
     }
 

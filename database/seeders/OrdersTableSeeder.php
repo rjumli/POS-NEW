@@ -21,33 +21,23 @@ class OrdersTableSeeder extends Seeder
         \DB::table('orders')->insert(array (
             0 => 
             array (
+                'code' => 'ORDER20231211-0001',
+                'created_at' => '2023-12-11 19:20:55',
                 'id' => 1,
-                'code' => 'ORDER20231126-0001',
-                'total' => '32000.00',
                 'status_id' => 5,
-                'supplier_id' => 1,
-                'created_at' => '2023-11-26 11:30:15',
-                'updated_at' => '2023-11-26 11:50:19',
+                'supplier_id' => 4,
+                'total' => '100000.00',
+                'updated_at' => '2023-12-11 19:22:33',
             ),
             1 => 
             array (
+                'code' => 'ORDER20231211-0002',
+                'created_at' => '2023-12-11 19:51:22',
                 'id' => 2,
-                'code' => 'ORDER20231126-0002',
-                'total' => '7500.00',
                 'status_id' => 5,
-                'supplier_id' => 1,
-                'created_at' => '2023-11-26 18:00:43',
-                'updated_at' => '2023-11-26 18:23:41',
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'code' => 'ORDER20231126-0003',
-                'total' => '250.00',
-                'status_id' => 4,
-                'supplier_id' => 1,
-                'created_at' => '2023-11-26 18:41:43',
-                'updated_at' => '2023-11-26 18:41:43',
+                'supplier_id' => 4,
+                'total' => '75000.00',
+                'updated_at' => '2023-12-11 19:51:31',
             ),
         ));
         

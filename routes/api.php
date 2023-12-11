@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Resources\Api\UserResource;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,7 +18,7 @@ Route::post('/login', [App\Http\Controllers\AuthController::class, 'loginUser'])
 Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logoutUser']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    return new UserResource($request->user());
 });
 
 Route::get('/search', [App\Http\Controllers\ApiController::class, 'search']);

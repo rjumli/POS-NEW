@@ -16,19 +16,23 @@ use App\Http\Resources\DefaultResource;
 
 class ApiController extends Controller
 {
-    public function customers(){
-        $data = Customer::all();
-        return $data;
-    }
+   
+    public function lists(){
+        $payments = Dropdown::where('classification','Payment')->get();
+        $discounts = Discount::where('is_active',1)->get();
+        $customers = Customer::all();
 
-    public function discounts(){
-        $data = Discount::where('is_active',1)->get();
-        return $data;
-    }
+        $data = [
+            'payments' => $payments,
+            'discounts' => $discounts,
+            'customers' => $customers
+        ];
 
-    public function payments(){
-        $data = Dropdown::where('classification','Payment')->get();
-        return $data;
+        return response()->json([
+            'status' => true,
+            'message' => 'Lists',
+            'data' => $data
+        ], 200);
     }
 
     public function search(Request $request){

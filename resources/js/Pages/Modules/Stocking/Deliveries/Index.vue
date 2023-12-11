@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <button @click="download()" class="btn btn-primary">Download Database</button>
+            <!-- <button @click="download()" class="btn btn-primary">Download Database</button> -->
 
                 <!-- </b-card-body>
             </b-card> -->

@@ -14953,12 +14953,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
               value: list.id,
               key: list.id
             }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(list.name), 9 /* TEXT, PROPS */, _hoisted_7);
-          }), 128 /* KEYED_FRAGMENT */))], 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.category]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button @click=\"openCreate()\" type=\"button\" variant=\"primary\">\r\n                            <i class=\"ri-add-circle-fill align-bottom me-1\"></i> New Order\r\n                        </b-button> ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-            onClick: _cache[3] || (_cache[3] = function ($event) {
-              return $options.download();
-            }),
-            "class": "btn btn-primary"
-          }, "Download Database"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </b-card-body>\r\n            </b-card> "), _hoisted_8];
+          }), 128 /* KEYED_FRAGMENT */))], 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.category]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button @click=\"openCreate()\" type=\"button\" variant=\"primary\">\r\n                            <i class=\"ri-add-circle-fill align-bottom me-1\"></i> New Order\r\n                        </b-button> ")])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button @click=\"download()\" class=\"btn btn-primary\">Download Database</button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </b-card-body>\r\n            </b-card> "), _hoisted_8];
         }),
         _: 1 /* STABLE */
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_col, {
@@ -15014,7 +15009,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     products: $props.products,
     units: $props.units,
     dropdowns: $props.dropdowns,
-    onMessage: _cache[4] || (_cache[4] = function ($event) {
+    onMessage: _cache[3] || (_cache[3] = function ($event) {
       return $options.fetch();
     }),
     ref: "create"

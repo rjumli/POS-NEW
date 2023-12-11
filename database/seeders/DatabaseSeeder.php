@@ -27,17 +27,17 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
         $this->call(DropdownsTableSeeder::class);
-        // $this->call(CategoriesTableSeeder::class);
+        $this->call(CategoriesTableSeeder::class);
         $this->call(UnitsTableSeeder::class);
-        // $this->call(ProductsTableSeeder::class);
-        // $this->call(SuppliersTableSeeder::class);
-        // $this->call(SupplierBranchesTableSeeder::class);
-        // $this->call(CustomersTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);
+        $this->call(SuppliersTableSeeder::class);
+        $this->call(SupplierBranchesTableSeeder::class);
+        $this->call(CustomersTableSeeder::class);
         $this->call(DiscountsTableSeeder::class);
         // $this->call(OrdersTableSeeder::class);
         // $this->call(OrderListsTableSeeder::class);
-        // $this->call(PackagesTableSeeder::class);
-        // $this->call(PackageListsTableSeeder::class);
+        $this->call(PackagesTableSeeder::class);
+        $this->call(PackageListsTableSeeder::class);
         // $this->call(SalesTableSeeder::class);
         // $this->call(SaleListsTableSeeder::class);
     }

@@ -21,13 +21,23 @@ class CustomersTableSeeder extends Seeder
         \DB::table('customers')->insert(array (
             0 => 
             array (
+                'contact' => '09123654789',
+                'created_at' => '2023-12-11 19:59:37',
+                'email' => 'benjamin@yahoo.com',
                 'id' => 1,
-                'name' => 'Krad Jumli',
-                'contact' => '123654789',
-                'email' => 'kradjumli@gmail.com',
                 'is_active' => 1,
-                'created_at' => '2023-11-21 21:43:54',
-                'updated_at' => '2023-11-21 21:43:54',
+                'name' => 'Benjamin Jose',
+                'updated_at' => '2023-12-11 19:59:37',
+            ),
+            1 => 
+            array (
+                'contact' => '001234567/',
+                'created_at' => '2023-12-11 20:02:09',
+                'email' => 'clarkster@yahoo.com',
+                'id' => 2,
+                'is_active' => 1,
+                'name' => 'Clark Ster',
+                'updated_at' => '2023-12-11 20:02:09',
             ),
         ));
         

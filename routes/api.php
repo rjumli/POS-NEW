@@ -21,6 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return new UserApiResource($request->user());
 });
 
-Route::get('/search', [App\Http\Controllers\ApiController::class, 'search']);
-Route::post('/store', [App\Http\Controllers\ApiController::class, 'store']);
-Route::get('/lists', [App\Http\Controllers\ApiController::class, 'lists']);
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/search', [App\Http\Controllers\ApiController::class, 'search']);
+    Route::post('/store', [App\Http\Controllers\ApiController::class, 'store']);
+    Route::get('/lists', [App\Http\Controllers\ApiController::class, 'lists']);
+});

@@ -34,6 +34,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/settings', App\Http\Controllers\SettingController::class);
     Route::resource('/backups', App\Http\Controllers\BackupController::class);
     Route::resource('/terms', App\Http\Controllers\TermController::class);
+
+    Route::get('/reports/{type}', [App\Http\Controllers\ReportController::class, 'index']);
+    Route::get('reports/{month}/edit', [App\Http\Controllers\ReportController::class, 'edit']);
 });
 
 require __DIR__.'/auth.php';

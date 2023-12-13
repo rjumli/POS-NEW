@@ -106,6 +106,11 @@
                                     <span data-key="t-dashboards">Backup and Restore</span>
                                 </Link>
                             </li>
+                             <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility/Reports') }" href="/reports/inventory">
+                                    <span data-key="t-dashboards">Inventory Report</span>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </li>

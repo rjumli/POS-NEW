@@ -37,7 +37,7 @@
         "v-money": "^0.8.1",
         "vue": "^3.2.47",
         "vue-datepicker-next": "^1.0.2",
-        "vue-flatpickr-component": "^11.0.1",
+        "vue-flatpickr-component": "^11.0.3",
         "vue3-apexcharts": "^1.4.1",
         "vue3-loading-overlay": "^0.0.0"
     }

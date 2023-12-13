@@ -62,7 +62,7 @@
                             </td>
                         </tr>
                     </tbody>
-                    <tfoot>
+                    <tfoot v-if="lists.length == 0">
                         <td colspan="7">
                             <div>
                                 <div class="alert alert-danger mb-xl-0" role="alert"><center><strong>No records found.</strong></center> </div>

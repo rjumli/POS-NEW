@@ -37,6 +37,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/reports/{type}', [App\Http\Controllers\ReportController::class, 'index']);
     Route::get('reports/{month}/edit', [App\Http\Controllers\ReportController::class, 'edit']);
+    Route::get('reports/{month}/sales', [App\Http\Controllers\ReportController::class, 'sales']);
+    Route::get('reports/{month}/orders', [App\Http\Controllers\ReportController::class, 'orders']);
 });
 
 require __DIR__.'/auth.php';

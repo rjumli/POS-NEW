@@ -106,9 +106,19 @@
                                     <span data-key="t-dashboards">Backup and Restore</span>
                                 </Link>
                             </li>
-                             <li class="nav-item">
-                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility/Reports') }" href="/reports/inventory">
+                            <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/inventory">
                                     <span data-key="t-dashboards">Inventory Report</span>
+                                </Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/sales">
+                                    <span data-key="t-dashboards">Sales Report</span>
+                                </Link>
+                            </li>
+                             <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/orders">
+                                    <span data-key="t-dashboards">Orders Report</span>
                                 </Link>
                             </li>
                         </ul>

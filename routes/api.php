@@ -14,16 +14,16 @@ use App\Http\Resources\UserApiResource;
 |
 */
 
-// Route::post('/login', [App\Http\Controllers\AuthController::class, 'loginUser']);
-// Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logoutUser']);
+Route::post('/new/login', [App\Http\Controllers\AuthController::class, 'loginUser']);
+Route::post('/new/logout', [App\Http\Controllers\AuthController::class, 'logoutUser']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return new UserApiResource($request->user());
 });
 
 
-// Route::middleware(['auth:sanctum'])->group(function () {
-//     Route::get('/search', [App\Http\Controllers\ApiController::class, 'search']);
-//     Route::post('/store', [App\Http\Controllers\ApiController::class, 'store']);
-//     Route::get('/lists', [App\Http\Controllers\ApiController::class, 'lists']);
-// });
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/new/search', [App\Http\Controllers\ApiController::class, 'search']);
+    Route::post('/new/store', [App\Http\Controllers\ApiController::class, 'store']);
+    Route::get('/new/lists', [App\Http\Controllers\ApiController::class, 'lists']);
+});

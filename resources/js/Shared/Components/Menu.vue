@@ -23,20 +23,20 @@
                 </button>
             </div>
 
-             <ul class="navbar-nav" id="navbar-nav" >
+             <ul class="navbar-nav" id="navbar-nav" v-if="role == 'Inventory Manager' || role == 'Administrator'">
                 <li class="nav-item">
                     <Link class="nav-link menu-link" :class="{'active': $page.component.startsWith('Modules/Home') }" href="/home">
                         <i class='ri ri-apps-line '></i>
                         <span data-key="t-dashboards">Home</span>
                     </Link>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="role == 'Cashiering' || role == 'Administrator'">
                     <Link class="nav-link menu-link" :class="{'active': $page.component.startsWith('Modules/Sales') }" href="/sales">
                         <i class='ri ri-hand-coin-fill'></i>
                         <span data-key="t-dashboards">Cashiering</span>
                     </Link>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="role == 'Inventory Manager' || role == 'Administrator'">
                     <b-link class="nav-link menu-link"  href="#sidebarDashboards1" :class="{'active': $page.component.startsWith('Modules/Inventory') }" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards1">
                         <i class="ri-archive-fill"></i>
@@ -67,7 +67,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="role == 'Inventory Manager' || role == 'Administrator'">
                     <b-link class="nav-link menu-link"  href="#sidebarDashboards2" :class="{'active': $page.component.startsWith('Modules/Stocking') }" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards2">
                         <i class="ri-server-fill"></i>
@@ -88,7 +88,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="role == 'Admin' || role == 'Administrator'">
                     <b-link class="nav-link menu-link"  href="#sidebarDashboards3" :class="{'active': $page.component.startsWith('Modules/Utility') }" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards3">
                         <i class="ri-database-2-fill"></i>
@@ -124,7 +124,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="role == 'Assistant Clerk' || role == 'Administrator'">
                     <b-link class="nav-link menu-link"  href="#sidebarDashboards4" :class="{'active': $page.component.startsWith('Modules/Maintenance') }" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards4">
                         <i class="ri-settings-5-fill"></i>
@@ -220,3 +220,8 @@
         <div class="vertical-overlay" id="overlay"></div>
     </div>
 </template>
+<script>
+export default {
+    props: ['role']
+}
+</script>

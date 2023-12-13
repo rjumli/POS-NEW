@@ -5241,7 +5241,7 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         role: ''
       },
-      roles: ['Inventory Manager', 'Cashier', 'Assistant Clerk'],
+      roles: ['Inventory Manager', 'Cashier', 'Assistant Clerk', 'Owner', 'Admin'],
       form: {},
       editable: false
     };
@@ -5737,6 +5737,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Components/Menu.vue?vue&type=script&lang=js":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Components/Menu.vue?vue&type=script&lang=js ***!
+  \*****************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['role']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Components/PageHeader.vue?vue&type=script&lang=js":
 /*!***********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Components/PageHeader.vue?vue&type=script&lang=js ***!
@@ -5810,6 +5827,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Vertical_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Vertical.vue */ "./resources/js/Shared/Layout/Vertical.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['role'],
   components: {
     Vertical: _Vertical_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -5848,6 +5866,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['role'],
   components: {
     Footer: _Components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     Header: _Components_Header_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -19544,6 +19563,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, null, -1 /* HOISTED */);
 var _hoisted_8 = [_hoisted_7];
 var _hoisted_9 = {
+  key: 0,
   "class": "navbar-nav",
   id: "navbar-nav"
 };
@@ -19557,6 +19577,7 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "data-key": "t-dashboards"
 }, "Home", -1 /* HOISTED */);
 var _hoisted_13 = {
+  key: 0,
   "class": "nav-item"
 };
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -19566,6 +19587,7 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "data-key": "t-dashboards"
 }, "Cashiering", -1 /* HOISTED */);
 var _hoisted_16 = {
+  key: 1,
   "class": "nav-item"
 };
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -19606,6 +19628,7 @@ var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "data-key": "t-dashboards"
 }, "Supplier Return", -1 /* HOISTED */);
 var _hoisted_29 = {
+  key: 2,
   "class": "nav-item"
 };
 var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -19634,6 +19657,7 @@ var _hoisted_37 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "data-key": "t-dashboards"
 }, "Deliveries", -1 /* HOISTED */);
 var _hoisted_38 = {
+  key: 3,
   "class": "nav-item"
 };
 var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -19680,6 +19704,7 @@ var _hoisted_52 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   "data-key": "t-dashboards"
 }, "Orders Report", -1 /* HOISTED */);
 var _hoisted_53 = {
+  key: 4,
   "class": "nav-item"
 };
 var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -19739,7 +19764,7 @@ var _hoisted_71 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   id: "overlay"
 }, null, -1 /* HOISTED */);
 
-function render(_ctx, _cache) {
+function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
   var _component_b_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("b-link");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
@@ -19765,7 +19790,7 @@ function render(_ctx, _cache) {
     onClick: _cache[0] || (_cache[0] = function () {
       return _ctx.initActiveMenu && _ctx.initActiveMenu.apply(_ctx, arguments);
     })
-  }, _hoisted_8)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  }, _hoisted_8)]), $props.role == 'Inventory Manager' || $props.role == 'Administrator' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("ul", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["nav-link menu-link", {
       'active': _ctx.$page.component.startsWith('Modules/Home')
     }]),
@@ -19775,7 +19800,7 @@ function render(_ctx, _cache) {
       return [_hoisted_11, _hoisted_12];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["class"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  }, 8 /* PROPS */, ["class"])]), $props.role == 'Cashiering' || $props.role == 'Administrator' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["nav-link menu-link", {
       'active': _ctx.$page.component.startsWith('Modules/Sales')
     }]),
@@ -19785,7 +19810,7 @@ function render(_ctx, _cache) {
       return [_hoisted_14, _hoisted_15];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["class"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_link, {
+  }, 8 /* PROPS */, ["class"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.role == 'Inventory Manager' || $props.role == 'Administrator' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["nav-link menu-link", {
       'active': _ctx.$page.component.startsWith('Modules/Inventory')
     }]),
@@ -19839,7 +19864,7 @@ function render(_ctx, _cache) {
       return [_hoisted_28];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["class"])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_link, {
+  }, 8 /* PROPS */, ["class"])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.role == 'Inventory Manager' || $props.role == 'Administrator' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["nav-link menu-link", {
       'active': _ctx.$page.component.startsWith('Modules/Stocking')
     }]),
@@ -19873,7 +19898,7 @@ function render(_ctx, _cache) {
       return [_hoisted_37];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["class"])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_link, {
+  }, 8 /* PROPS */, ["class"])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.role == 'Admin' || $props.role == 'Administrator' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_38, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["nav-link menu-link", {
       'active': _ctx.$page.component.startsWith('Modules/Utility')
     }]),
@@ -19937,7 +19962,7 @@ function render(_ctx, _cache) {
       return [_hoisted_52];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["class"])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_53, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_link, {
+  }, 8 /* PROPS */, ["class"])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.role == 'Assistant Clerk' || $props.role == 'Administrator' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", _hoisted_53, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_link, {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["nav-link menu-link", {
       'active': _ctx.$page.component.startsWith('Modules/Maintenance')
     }]),
@@ -20011,7 +20036,7 @@ function render(_ctx, _cache) {
       return [_hoisted_69];
     }),
     _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["class"])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Orders') }\" href=\"/orders\">\r\n                        <i class='ri ri-shopping-cart-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Purchased Order</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Products') }\" href=\"/products\">\r\n                        <i class='ri ri-folder-zip-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Product Management</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Packages') }\" href=\"/packages\">\r\n                        <i class='ri ri-shopping-basket-line'></i>\r\n                        <span data-key=\"t-dashboards\">Package Management</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Discounts') }\" href=\"/discounts\">\r\n                        <i class='ri ri-price-tag-3-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Discount Management</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Customers') }\" href=\"/customers\">\r\n                        <i class='ri ri-team-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Customer Management</span>\r\n                    </Link>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Suppliers') }\" href=\"/suppliers\">\r\n                        <i class='ri ri-store-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Supplier Management</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Settings') }\" href=\"/settings\">\r\n                        <i class='ri ri-settings-4-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Settings</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Users') }\" href=\"/users\">\r\n                        <i class='ri ri-shield-user-line'></i>\r\n                        <span data-key=\"t-dashboards\">User Management</span>\r\n                    </Link>\r\n                </li> ")]), _hoisted_70]), _hoisted_71]);
+  }, 8 /* PROPS */, ["class"])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Orders') }\" href=\"/orders\">\r\n                        <i class='ri ri-shopping-cart-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Purchased Order</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Products') }\" href=\"/products\">\r\n                        <i class='ri ri-folder-zip-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Product Management</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Packages') }\" href=\"/packages\">\r\n                        <i class='ri ri-shopping-basket-line'></i>\r\n                        <span data-key=\"t-dashboards\">Package Management</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Discounts') }\" href=\"/discounts\">\r\n                        <i class='ri ri-price-tag-3-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Discount Management</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Customers') }\" href=\"/customers\">\r\n                        <i class='ri ri-team-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Customer Management</span>\r\n                    </Link>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Suppliers') }\" href=\"/suppliers\">\r\n                        <i class='ri ri-store-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Supplier Management</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Settings') }\" href=\"/settings\">\r\n                        <i class='ri ri-settings-4-fill'></i>\r\n                        <span data-key=\"t-dashboards\">Settings</span>\r\n                    </Link>\r\n                </li> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <li class=\"nav-item\">\r\n                    <Link class=\"nav-link menu-link\" :class=\"{'active': $page.component.startsWith('Modules/Users') }\" href=\"/users\">\r\n                        <i class='ri ri-shield-user-line'></i>\r\n                        <span data-key=\"t-dashboards\">User Management</span>\r\n                    </Link>\r\n                </li> ")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_70]), _hoisted_71]);
 }
 
 /***/ }),
@@ -20199,12 +20224,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Vertical = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Vertical");
   var _component_b_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("b-link");
   var _component_b_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("b-modal");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Vertical, null, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Vertical, {
+    role: $props.role
+  }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")];
     }),
     _: 3 /* FORWARDED */
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_modal, {
+  }, 8 /* PROPS */, ["role"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_modal, {
     modelValue: $options.message,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $options.message = $event;
@@ -20272,7 +20299,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Header = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Header");
   var _component_Menu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Menu");
   var _component_Footer = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Footer");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Menu), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" @include('layouts.sidebar') "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Header), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Menu, {
+    role: $props.role
+  }, null, 8 /* PROPS */, ["role"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" @include('layouts.sidebar') "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Footer)])]);
 }
 
 /***/ }),
@@ -24575,12 +24604,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Menu_vue_vue_type_template_id_4c34e02c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Menu.vue?vue&type=template&id=4c34e02c */ "./resources/js/Shared/Components/Menu.vue?vue&type=template&id=4c34e02c");
-/* harmony import */ var D_Web_Applications_FREELANCE_POS_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _Menu_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Menu.vue?vue&type=script&lang=js */ "./resources/js/Shared/Components/Menu.vue?vue&type=script&lang=js");
+/* harmony import */ var D_Web_Applications_FREELANCE_POS_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
-const script = {}
+
+
 
 ;
-const __exports__ = /*#__PURE__*/(0,D_Web_Applications_FREELANCE_POS_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_Menu_vue_vue_type_template_id_4c34e02c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Shared/Components/Menu.vue"]])
+const __exports__ = /*#__PURE__*/(0,D_Web_Applications_FREELANCE_POS_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Menu_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Menu_vue_vue_type_template_id_4c34e02c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Shared/Components/Menu.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -25881,6 +25912,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Setting_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Setting_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Setting.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Components/Header/Setting.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Shared/Components/Menu.vue?vue&type=script&lang=js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Shared/Components/Menu.vue?vue&type=script&lang=js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Menu_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Menu_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Menu.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Shared/Components/Menu.vue?vue&type=script&lang=js");
  
 
 /***/ }),

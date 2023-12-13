@@ -27,3 +27,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/new/store', [App\Http\Controllers\ApiController::class, 'store']);
     Route::get('/new/lists', [App\Http\Controllers\ApiController::class, 'lists']);
 });
+
+

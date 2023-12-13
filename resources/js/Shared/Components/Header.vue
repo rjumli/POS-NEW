@@ -33,6 +33,26 @@
                 </button>
                 <h2 class="mt-3 text-light">Sales and Inventory</h2>
             </div>
+
+            <div class="dropdown ms-sm-3 header-item topbar-user">
+                        <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <span class="d-flex align-items-center">
+                                
+                                <span class="text-start ms-xl-2">
+                                    <span class=" d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ $page.props.auth.data.name }}</span>
+                                    <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ $page.props.auth.data.role }}</span>
+                                </span>
+                            </span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end" style="cursor: pointer;">
+                         
+                            <Link class="dropdown-item" method="post" as="button" href="/logout"><i
+                                    class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
+                                <span class="align-middle" data-key="t-logout">Logout</span>
+                            </Link>
+                        </div>
+                    </div>
             
         </div>
     </div>

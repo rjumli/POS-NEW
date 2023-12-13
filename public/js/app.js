@@ -18105,6 +18105,42 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", {
   "class": "mt-3 text-light"
 }, "Sales and Inventory", -1 /* HOISTED */);
+var _hoisted_12 = {
+  "class": "dropdown ms-sm-3 header-item topbar-user"
+};
+var _hoisted_13 = {
+  type: "button",
+  "class": "btn",
+  id: "page-header-user-dropdown",
+  "data-bs-toggle": "dropdown",
+  "aria-haspopup": "true",
+  "aria-expanded": "false"
+};
+var _hoisted_14 = {
+  "class": "d-flex align-items-center"
+};
+var _hoisted_15 = {
+  "class": "text-start ms-xl-2"
+};
+var _hoisted_16 = {
+  "class": "d-none d-xl-inline-block ms-1 fw-medium user-name-text"
+};
+var _hoisted_17 = {
+  "class": "d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text"
+};
+var _hoisted_18 = {
+  "class": "dropdown-menu dropdown-menu-end",
+  style: {
+    "cursor": "pointer"
+  }
+};
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "mdi mdi-logout text-muted fs-16 align-middle me-1"
+}, null, -1 /* HOISTED */);
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "align-middle",
+  "data-key": "t-logout"
+}, "Logout", -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
@@ -18125,7 +18161,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_8, _hoisted_9];
     }),
     _: 1 /* STABLE */
-  })]), _hoisted_10, _hoisted_11])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Setting2, {
+  })]), _hoisted_10, _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.data.name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth.data.role), 1 /* TEXT */)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    "class": "dropdown-item",
+    method: "post",
+    as: "button",
+    href: "/logout"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_19, _hoisted_20];
+    }),
+    _: 1 /* STABLE */
+  })])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Setting2, {
     ref: "setting"
   }, null, 512 /* NEED_PATCH */)], 64 /* STABLE_FRAGMENT */);
 }

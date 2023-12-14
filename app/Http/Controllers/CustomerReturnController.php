@@ -49,8 +49,9 @@ class CustomerReturnController extends Controller
 
     public function update(Request $request){
         $request->validate([
-            'reason_id' => 'sometimes|required',
-            'reason' => 'sometimes|required',
+            'reason_id' => 'required',
+            'reason' => 'required',
+            'quantity' => 'required|integer|min:1',
         ]);
 
         $data = SaleList::where('id',$request->id)->first();
@@ -64,6 +65,7 @@ class CustomerReturnController extends Controller
             $return = new SaleListReturn;
             $return->reason = $request->reason;
             $return->reason_id = $request->reason_id;
+            $return->quantity = $request->quantity;
             $return->total = $request->total;
             $return->salelist_id = $request->id;
             $return->save();

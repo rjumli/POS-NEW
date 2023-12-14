@@ -25,6 +25,7 @@
                         <table class="table table-bordered table-centered align-middle table-nowrap mb-0">
                             <thead class="text-muted table-light">
                                 <tr>
+                                    <th scope="col" class="text-center">Code</th>
                                     <th scope="col" class="text-center">Product</th>
                                     <th scope="col" class="text-center">Stock</th>
                                     <th scope="col" class="text-center">Reorder</th>
@@ -33,6 +34,7 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(list,index) in lists" v-bind:key="index">
+                                    <td class="text-center">{{list.code}}</td>
                                     <td class="text-center">{{list.name}}</td>
                                     <td class="text-center">{{list.stock}}</td>
                                     <td class="text-center">{{list.reorder}}</td>

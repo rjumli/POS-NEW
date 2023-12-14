@@ -24,7 +24,7 @@
             </div>
 
              <ul class="navbar-nav" id="navbar-nav">
-                <li class="nav-item"  v-if="role == 'Inventory Manager' || role == 'Administrator'">
+                <li class="nav-item">
                     <Link class="nav-link menu-link" :class="{'active': $page.component.startsWith('Modules/Home') }" href="/home">
                         <i class='ri ri-apps-line '></i>
                         <span data-key="t-dashboards">Home</span>

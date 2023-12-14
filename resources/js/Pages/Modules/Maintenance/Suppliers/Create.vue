@@ -43,31 +43,31 @@
                 </div>
                 <div class="col-md-12 mt-2">
                    <div class="form-group">
-                        <label>Branch:</label>
+                        <label>Branch: <span v-if="form.errors" v-text="form.errors.name" class="haveerror"></span></label>
                         <input type="text" class="form-control" v-model="supplier.name" style="text-transform: capitalize;">
                     </div>
                 </div>
                 <div class="col-md-6 mt-2">
                    <div class="form-group">
-                        <label>Contact Person:</label>
+                        <label>Contact Person: <span v-if="form.errors" v-text="form.errors.contact_person" class="haveerror"></span></label>
                         <input type="text" class="form-control" v-model="supplier.contact_person">
                     </div>
                 </div>
                 <div class="col-md-6 mt-2">
                    <div class="form-group">
-                        <label>Contact Number:</label>
+                        <label>Contact Number: <span v-if="form.errors" v-text="form.errors.contact_number" class="haveerror"></span></label>
                         <input type="text" class="form-control" v-model="supplier.contact_number">
                     </div>
                 </div>
                 <div class="col-md-6 mt-2">
                    <div class="form-group">
-                        <label>Email:</label>
+                        <label>Email: <span v-if="form.errors" v-text="form.errors.email" class="haveerror"></span></label>
                         <input type="text" class="form-control" v-model="supplier.email">
                     </div>
                 </div>
                 <div class="col-md-6 mt-2">
                    <div class="form-group">
-                        <label>Address:</label>
+                        <label>Address: <span v-if="form.errors" v-text="form.errors.address" class="haveerror"></span></label>
                         <input type="text" class="form-control" v-model="supplier.address">
                     </div>
                 </div>

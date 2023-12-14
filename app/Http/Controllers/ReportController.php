@@ -40,7 +40,7 @@ class ReportController extends Controller
                     }
                     return $lists;
                 }else{
-                    return inertia('Modules/Utility/Reports/Sale',['d' => $monday.' to '.$sunday]);
+                    return inertia('Modules/Reports/Sale',['d' => $monday.' to '.$sunday]);
                 }
             break;
             case 'orders':
@@ -53,7 +53,7 @@ class ReportController extends Controller
                     $monday =  date("Y-m-d", strtotime($monday));
                     $sunday = date("Y-m-d", strtotime($sunday));    
 
-                    $orders = OrderList::with('product')->with('order.supplier.supplier')->whereBetween('created_at', [$monday, $sunday])->where('status_id',8)->get();
+                    $orders = OrderList::with('product')->with('order.supplier.supplier')->whereBetween('created_at', [$monday, $sunday])->whereIn('status_id',[8,32])->get();
                     
                     $lists = [];
                     if(count($orders) > 0){
@@ -70,7 +70,7 @@ class ReportController extends Controller
                     }
                     return $lists;
                 }else{
-                    return inertia('Modules/Utility/Reports/Order',['d' => $monday.' to '.$sunday]);
+                    return inertia('Modules/Reports/Order',['d' => $monday.' to '.$sunday]);
                 }
             break;
             case 'inventory':
@@ -112,7 +112,7 @@ class ReportController extends Controller
 
                     return $lists;
                 }else{
-                    return inertia('Modules/Utility/Reports/Inventory',['d' => $monday.' to '.$sunday]);
+                    return inertia('Modules/Reports/Inventory',['d' => $monday.' to '.$sunday]);
                 }
              break;
             default : 

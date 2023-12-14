@@ -30,7 +30,7 @@
                         <span data-key="t-dashboards">Home</span>
                     </Link>
                 </li>
-                <li class="nav-item" v-if="role == 'Cashiering' || role == 'Administrator'">
+                <li class="nav-item" v-if="role == 'Cashier' || role == 'Administrator'">
                     <Link class="nav-link menu-link" :class="{'active': $page.component.startsWith('Modules/Sales') }" href="/sales">
                         <i class='ri ri-hand-coin-fill'></i>
                         <span data-key="t-dashboards">Cashiering</span>
@@ -67,6 +67,7 @@
                         </ul>
                     </div>
                 </li>
+                
                 <li class="nav-item" v-if="role == 'Inventory Manager' || role == 'Administrator'">
                     <b-link class="nav-link menu-link"  href="#sidebarDashboards2" :class="{'active': $page.component.startsWith('Modules/Stocking') }" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards2">
@@ -88,6 +89,32 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item" v-if="role == 'Inventory Manager' || role == 'Administrator'">
+                    <b-link class="nav-link menu-link"  href="#sidebarDashboards1" :class="{'active': $page.component.startsWith('Modules/Reports') }" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarDashboards1">
+                        <i class="ri-file-text-fill"></i>
+                        <span data-key="t-dashboards">Reports</span>
+                    </b-link>
+                    <div class="collapse menu-dropdown" id="sidebarDashboards1">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/inventory">
+                                    <span data-key="t-dashboards">Inventory Report</span>
+                                </Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/sales">
+                                    <span data-key="t-dashboards">Sales Report</span>
+                                </Link>
+                            </li>
+                             <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/orders">
+                                    <span data-key="t-dashboards">Delivery Report</span>
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="nav-item" v-if="role == 'Admin' || role == 'Administrator'">
                     <b-link class="nav-link menu-link"  href="#sidebarDashboards3" :class="{'active': $page.component.startsWith('Modules/Utility') }" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards3">
@@ -104,21 +131,6 @@
                             <li class="nav-item">
                                 <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility/Backups') }" href="/backups">
                                     <span data-key="t-dashboards">Backup and Restore</span>
-                                </Link>
-                            </li>
-                            <li class="nav-item">
-                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/inventory">
-                                    <span data-key="t-dashboards">Inventory Report</span>
-                                </Link>
-                            </li>
-                            <li class="nav-item">
-                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/sales">
-                                    <span data-key="t-dashboards">Sales Report</span>
-                                </Link>
-                            </li>
-                             <li class="nav-item">
-                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/orders">
-                                    <span data-key="t-dashboards">Orders Report</span>
                                 </Link>
                             </li>
                         </ul>

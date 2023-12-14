@@ -134,6 +134,8 @@ export default {
         },
         edit(data){
             this.product = data;
+            this.product.pricing = data.pricing.id;
+            this.product.unit = data.unit.id;
             this.editable = true;
             this.showModal = true;
         },

@@ -45,6 +45,13 @@ class ProductController extends Controller
             }
             
         });
+
+        return back()->with([
+            'message' => 'Product updated successfully. Thanks',
+            'data' => new ItemResource($data),
+            'type' => 'bxs-check-circle',
+            'color' => 'success'
+        ]); 
     }
 
     public function lists($request){

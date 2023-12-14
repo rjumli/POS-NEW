@@ -21,10 +21,10 @@
                         <div class="card-header align-items-center d-flex" v-if="show == false">
                             <h5 class="card-title mb-0 flex-grow-1">CART ({{items.length}} items)</h5>
                             <div class="flex-shrink-0">
-                                <div class="form-check form-switch form-switch-right form-switch-md">
+                                <!-- <div class="form-check form-switch form-switch-right form-switch-md">
                                     <label for="ribbons01-showcode" class="form-label text-muted">Show Sales</label>
                                     <input class="form-check-input code-switcher" type="checkbox" v-model="show" id="ribbons01-showcode">
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="card-header align-items-center d-flex" v-else>

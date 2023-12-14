@@ -24,6 +24,16 @@ class SupplierController extends Controller
     }
 
     public function store(Request $request){
+
+         $request->validate([
+            'name' => 'required',
+            'contact_person' => 'required',
+            'contact_number' => 'required',
+            'address' => 'required',
+            'email' => 'required',
+            'supplier_id' => 'required',
+        ]);
+
         $data = \DB::transaction(function () use ($request){
             if($request->type == 'name'){
                 if($request->editable){

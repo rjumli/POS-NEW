@@ -72,36 +72,35 @@ class ApiController extends Controller
             $data->update($request->except('editable'));
             return $data;
         }else{
-            return response()->json(['message' => 'test']);
             $total = 0;
             $code = 'SLS'.date('Y').date('m').date('d')."-".str_pad((Sale::count()+1), 4, '0', STR_PAD_LEFT);  
             $lists = $request->lists;
             $data = Sale::create(array_merge($request->all(),['code' => $code]));
             if($data){
-                foreach($lists as $list){
-                    $l = new SaleList;
-                    $l->price = $list['price'];
-                    $l->quantity = $list['quantity'];
-                    $l->discount = $list['discounted'];
-                    $l->total = $list['total'];
-                    $l->status_id = 27;
-                    $l->type = $list['type'];
-                    if($list['type'] == 'Product'){
-                        $l->product_id = $list['id'];
-                    }else{
-                        $l->package_id = $list['id'];
-                    }
-                    $l->sale_id = $data->id;
-                    if($l->save()){
-                        $id = $list['id'];
-                        $quantityToSubtract = $list['quantity'];
-                        if($list['type'] == 'Product'){
-                            $product = Product::where('id',$id)->decrement('stock', $quantityToSubtract);
-                        }else{
-                            $product = Package::where('id',$id)->decrement('stock', $quantityToSubtract);
-                        }
-                    }
-                }
+                // foreach($lists as $list){
+                //     $l = new SaleList;
+                //     $l->price = $list['price'];
+                //     $l->quantity = $list['quantity'];
+                //     $l->discount = $list['discounted'];
+                //     $l->total = $list['total'];
+                //     $l->status_id = 27;
+                //     $l->type = $list['type'];
+                //     if($list['type'] == 'Product'){
+                //         $l->product_id = $list['id'];
+                //     }else{
+                //         $l->package_id = $list['id'];
+                //     }
+                //     $l->sale_id = $data->id;
+                //     if($l->save()){
+                //         $id = $list['id'];
+                //         $quantityToSubtract = $list['quantity'];
+                //         if($list['type'] == 'Product'){
+                //             $product = Product::where('id',$id)->decrement('stock', $quantityToSubtract);
+                //         }else{
+                //             $product = Package::where('id',$id)->decrement('stock', $quantityToSubtract);
+                //         }
+                //     }
+                // }
                 return response()->json(['message' => 'Success']);
             }else{
                 return response()->json(['message' => 'Failed']);

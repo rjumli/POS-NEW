@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductAdjustment;
 use Illuminate\Http\Request;
 use App\Rules\UniqueNameBrandCombination;
 use App\Http\Resources\DefaultResource;
@@ -80,8 +81,18 @@ class ProductController extends Controller
     }
 
     public function update(Request $request){
-        $data = Product::where('id',$request->id)->update($request->except('id','type'));
-        $data = Product::where('id',$request->id)->first();
+        if($request->type == 'adjustment'){
+            $prod = ProductAdjustment::create($request->all());
+            if($prod){
+                $data = Product::where('id',$request->product_id)->first();
+                $data->stock = $data->stock - $request->quantity;
+                $data->save();
+            }
+        }else{
+            $data = Product::where('id',$request->id)->update($request->except('id','type'));
+            $data = Product::where('id',$request->id)->first();
+        }
+    
         return back()->with([
             'message' => 'Product status updated successfully. Thanks',
             'data' => new ItemResource($data),

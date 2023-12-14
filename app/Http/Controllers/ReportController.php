@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SaleList;
+use App\Models\ProductAdjustment;
 use App\Models\OrderList;
 use Illuminate\Http\Request;
 
@@ -114,7 +115,23 @@ class ReportController extends Controller
                 }else{
                     return inertia('Modules/Reports/Inventory',['d' => $monday.' to '.$sunday]);
                 }
-             break;
+            break;
+            case 'adjustments':
+                $subtype = $request->subtype;
+                if($subtype == 'lists'){
+                    $date = $request->date;
+                    $d = (explode("to", $date));
+                    $monday = str_replace(' ','',$d[0]);
+                    $sunday = str_replace(' ','',$d[1]);
+                    $monday =  date("Y-m-d", strtotime($monday));
+                    $sunday = date("Y-m-d", strtotime($sunday));    
+
+                    $lists = ProductAdjustment::with('product')->whereBetween('created_at', [$monday, $sunday])->get();
+                    return $lists;
+                }else{
+                    return inertia('Modules/Reports/Adjustment',['d' => $monday.' to '.$sunday]);
+                }
+            break;
             default : 
             return inertia('Modules/Inventory/Packages/Index');
         }
@@ -238,5 +255,38 @@ class ReportController extends Controller
 
         $pdf = \PDF::loadView('print.order',$array)->setPaper('a4', 'landscape');
         return $pdf->download('OrderReport.pdf');
+    }
+
+    public function adjustments($date,Request $request){
+       
+        $d = (explode("to", $date));
+        $monday = str_replace(' ','',$d[0]);
+        $sunday = str_replace(' ','',$d[1]);
+        $monday =  date("Y-m-d", strtotime($monday));
+        $sunday = date("Y-m-d", strtotime($sunday));        
+
+        $lists = ProductAdjustment::with('product')->whereBetween('created_at', [$monday, $sunday])->get();
+    
+        if(count($lists) > 0){
+            foreach($lists as $list){
+                $sessions[] = [
+                    'product' => $list['product']['name'],
+                    'quantity' => $list['quantity'],
+                    'reason'=> $list['reason'],
+                    'date' => $list['created_at']
+                ];
+            }
+        }
+
+        $monday2 =  date("F d, y", strtotime("this week monday"));
+        $sunday2 = date("F d, y", strtotime("this week sunday"));      
+
+        $array = [
+            'sessions' => $sessions,
+            'week' => $monday2.' to '.$sunday2
+        ];
+
+        $pdf = \PDF::loadView('print.adjustment',$array)->setPaper('a4', 'landscape');
+        return $pdf->download('AdjustmentReport.pdf');
     }
 }

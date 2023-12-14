@@ -39,7 +39,11 @@ class ApiController extends Controller
         $keyword = $request->keyword;
         $data = Product::with('category','unit','pricing','discounts.discount.subtype')->where('code',$keyword)->first();
         if(isset($data)){
-            return new ProductResource($data);
+            if($data->stock == 0){
+                return 'No stocks available';
+            }else{
+                return new ProductResource($data);
+            }
         }else{
             $data = Package::with('lists.product','category','discounts.discount.subtype')->where('code',$keyword)->first();
             if(isset($data)){

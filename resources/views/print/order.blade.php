@@ -88,7 +88,7 @@ border-top: none !important;
 
     <div style="font-family:Calibri;">
         <center style="font-size: 13px; margin-bottom: 3px;"">POST INVENTORY SYSTEM</center>
-        <center style="font-size: 8px; margin-bottom: 10px; font-family:Arial, Helvetica, sans-serif;">INVENTORY REPORT</center>
+        <center style="font-size: 8px; margin-bottom: 10px; font-family:Arial, Helvetica, sans-serif;">DELIVERY REPORT</center>
         <center style="font-size: 10px; font-weight: bold; margin-bottom: 10px; font-family:Arial, Helvetica, sans-serif;">{{strtoupper($week)}}</center>
 
         <table style="width:100%; font-size: 10px; padding: 20px; font-family:Arial, Helvetica, sans-serif">

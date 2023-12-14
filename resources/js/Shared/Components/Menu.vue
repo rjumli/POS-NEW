@@ -112,6 +112,11 @@
                                     <span data-key="t-dashboards">Delivery Report</span>
                                 </Link>
                             </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/adjustments">
+                                    <span data-key="t-dashboards">Sttock Adjustment Report</span>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </li>

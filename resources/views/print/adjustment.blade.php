@@ -88,28 +88,24 @@ border-top: none !important;
 
     <div style="font-family:Calibri;">
         <center style="font-size: 13px; margin-bottom: 3px;"">POST INVENTORY SYSTEM</center>
-        <center style="font-size: 8px; margin-bottom: 10px; font-family:Arial, Helvetica, sans-serif;">SALES REPORT</center>
+        <center style="font-size: 8px; margin-bottom: 10px; font-family:Arial, Helvetica, sans-serif;">STOCK ADJUSTMENT REPORT</center>
         <center style="font-size: 10px; font-weight: bold; margin-bottom: 10px; font-family:Arial, Helvetica, sans-serif;">{{strtoupper($week)}}</center>
 
         <table style="width:100%; font-size: 10px; padding: 20px; font-family:Arial, Helvetica, sans-serif">
             <thead>
                 <tr style="background-color: #a7dceb;">
-                    <th>Customer</th>
-                    <th>Type</th>
                     <th>Product</th>
                     <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Reason</th>
                     <th>Date</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($sessions as $key=>$session)
                 <tr>
-                    <td><center>{{$session['customer']}}</center></td>
-                    <td><center>{{$session['type']}}</center></td>
                     <td class="nor"><center>{{$session['product']}}</center></td>
                     <td class="nor"><center>{{$session['quantity']}}</center></td>
-                    <td class="nor"><center>{{$session['price']}}</center></td>
+                    <td class="nor"><center>{{$session['reason']}}</center></td>
                     <td class="nor"><center>{{$session['date']}}</center></td>
                 </tr>
                 @endforeach

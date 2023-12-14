@@ -53,6 +53,10 @@ class Product extends Model
         return $this->hasMany('App\Models\ItemDiscount', 'product_id')->where('is_active',1);
     } 
 
+    public function adjustments()
+    {
+        return $this->hasMany('App\Models\ProductAdjustment', 'product_id');
+    } 
 
     // public function lists()
     // {

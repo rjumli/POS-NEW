@@ -114,7 +114,17 @@
                             </li>
                             <li class="nav-item">
                                 <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/adjustments">
-                                    <span data-key="t-dashboards">Sttock Adjustment Report</span>
+                                    <span data-key="t-dashboards">Stock Adjustment Report</span>
+                                </Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/customers">
+                                    <span data-key="t-dashboards">Customer Return Report</span>
+                                </Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/suppliers">
+                                    <span data-key="t-dashboards">Supplier Return Report</span>
                                 </Link>
                             </li>
                         </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SaleList;
+use App\Models\SaleListReturn;
 use App\Models\ProductAdjustment;
 use App\Models\OrderList;
 use Illuminate\Http\Request;
@@ -130,6 +131,22 @@ class ReportController extends Controller
                     return $lists;
                 }else{
                     return inertia('Modules/Reports/Adjustment',['d' => $monday.' to '.$sunday]);
+                }
+            break;
+            case 'customers':
+                $subtype = $request->subtype;
+                if($subtype == 'lists'){
+                    $date = $request->date;
+                    $d = (explode("to", $date));
+                    $monday = str_replace(' ','',$d[0]);
+                    $sunday = str_replace(' ','',$d[1]);
+                    $monday =  date("Y-m-d", strtotime($monday));
+                    $sunday = date("Y-m-d", strtotime($sunday));    
+
+                    $lists = SaleListReturn::with('salelist.product','status')->whereBetween('created_at', [$monday, $sunday])->get();
+                    return $lists;
+                }else{
+                    return inertia('Modules/Reports/Customer',['d' => $monday.' to '.$sunday]);
                 }
             break;
             default : 
@@ -288,5 +305,75 @@ class ReportController extends Controller
 
         $pdf = \PDF::loadView('print.adjustment',$array)->setPaper('a4', 'landscape');
         return $pdf->download('AdjustmentReport.pdf');
+    }
+
+    public function customers($date,Request $request){
+       
+        $d = (explode("to", $date));
+        $monday = str_replace(' ','',$d[0]);
+        $sunday = str_replace(' ','',$d[1]);
+        $monday =  date("Y-m-d", strtotime($monday));
+        $sunday = date("Y-m-d", strtotime($sunday));        
+
+        $lists = SaleListReturn::with('salelist.product','status')->whereBetween('created_at', [$monday, $sunday])->get();
+    
+        if(count($lists) > 0){
+            foreach($lists as $list){
+                $sessions[] = [
+                    'product' => $list['salelist']['product']['name'],
+                    'total' => $list['total'],
+                    'reason'=> $list['reason'],
+                    'quantity'=> $list['quantity'],
+                    'status'=> $list['status']['name'],
+                    'date' => $list['created_at']
+                ];
+            }
+        }
+
+        $monday2 =  date("F d, y", strtotime("this week monday"));
+        $sunday2 = date("F d, y", strtotime("this week sunday"));      
+
+        $array = [
+            'sessions' => $sessions,
+            'week' => $monday2.' to '.$sunday2
+        ];
+
+        $pdf = \PDF::loadView('print.customer',$array)->setPaper('a4', 'landscape');
+        return $pdf->download('CustomerReport.pdf');
+    }
+
+    public function suppliers($date,Request $request){
+       
+        $d = (explode("to", $date));
+        $monday = str_replace(' ','',$d[0]);
+        $sunday = str_replace(' ','',$d[1]);
+        $monday =  date("Y-m-d", strtotime($monday));
+        $sunday = date("Y-m-d", strtotime($sunday));        
+
+        $lists = SaleListReturn::with('salelist.product','status')->whereBetween('created_at', [$monday, $sunday])->get();
+    
+        if(count($lists) > 0){
+            foreach($lists as $list){
+                $sessions[] = [
+                    'product' => $list['salelist']['product']['name'],
+                    'total' => $list['total'],
+                    'reason'=> $list['reason'],
+                    'quantity'=> $list['quantity'],
+                    'status'=> $list['status']['name'],
+                    'date' => $list['created_at']
+                ];
+            }
+        }
+
+        $monday2 =  date("F d, y", strtotime("this week monday"));
+        $sunday2 = date("F d, y", strtotime("this week sunday"));      
+
+        $array = [
+            'sessions' => $sessions,
+            'week' => $monday2.' to '.$sunday2
+        ];
+
+        $pdf = \PDF::loadView('print.supplier',$array)->setPaper('a4', 'landscape');
+        return $pdf->download('SupplierReport.pdf');
     }
 }

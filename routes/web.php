@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('reports/{month}/sales', [App\Http\Controllers\ReportController::class, 'sales']);
     Route::get('reports/{month}/orders', [App\Http\Controllers\ReportController::class, 'orders']);
     Route::get('reports/{month}/adjustments', [App\Http\Controllers\ReportController::class, 'adjustments']);
+    Route::get('reports/{month}/customers', [App\Http\Controllers\ReportController::class, 'customers']);
+    Route::get('reports/{month}/suppliers', [App\Http\Controllers\ReportController::class, 'suppliers']);
 });
 
 require __DIR__.'/auth.php';

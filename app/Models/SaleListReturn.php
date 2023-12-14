@@ -10,7 +10,7 @@ class SaleListReturn extends Model
     use HasFactory;
 
     protected $fillable = [
-        'reason'
+        'reason', 'total','reason_id','salelist_id'
     ];
 
     public function salelist()
@@ -22,4 +22,15 @@ class SaleListReturn extends Model
     {
         return $this->belongsTo('App\Models\Dropdown', 'reason_id', 'id');
     } 
+
+    
+    public function getUpdatedAtAttribute($value)
+    {
+        return date('M d, Y g:i a', strtotime($value));
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date('M d, Y g:i a', strtotime($value));
+    }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->longText('reason');
+            $table->integer('quantity')->default(1);
             $table->decimal('total',12,2);
             $table->tinyInteger('reason_id')->unsigned()->index();
             $table->foreign('reason_id')->references('id')->on('dropdowns')->onDelete('cascade');

@@ -72,6 +72,7 @@ class ApiController extends Controller
             $data->update($request->except('editable'));
             return $data;
         }else{
+            return response()->json(['message' => 'test']);
             $total = 0;
             $code = 'SLS'.date('Y').date('m').date('d')."-".str_pad((Sale::count()+1), 4, '0', STR_PAD_LEFT);  
             $lists = $request->lists;

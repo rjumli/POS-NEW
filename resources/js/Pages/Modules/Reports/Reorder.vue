@@ -27,6 +27,7 @@
                                 <tr>
                                     <th scope="col" class="text-center">Product</th>
                                     <th scope="col" class="text-center">Stock</th>
+                                    <th scope="col" class="text-center">Reorder</th>
                                     <th scope="col" class="text-center">Date</th>
                                 </tr>
                             </thead>
@@ -34,6 +35,7 @@
                                 <tr v-for="(list,index) in lists" v-bind:key="index">
                                     <td class="text-center">{{list.name}}</td>
                                     <td class="text-center">{{list.stock}}</td>
+                                    <td class="text-center">{{list.reorder}}</td>
                                     <td class="text-center">{{list.created_at}}</td>
                                 </tr>
                             </tbody>

@@ -154,7 +154,7 @@ class ReportController extends Controller
             case 'reorders':
                 $subtype = $request->subtype;
                 if($subtype == 'lists'){
-                    $products = Product::where('stock', '<', 'reorder')
+                    $products = Product::whereColumn('stock', '<', 'reorder')
                     ->get();
                     return $products;
                 }else{

@@ -211,7 +211,7 @@ export default {
             if(newVal.subtype_id == 18){
                 this.calculatePercent(newVal.value);
             }else{
-                this.discounted = this.formatMoeny(newVal.value);
+                this.discounted = newVal.value;
             }
         }
     },

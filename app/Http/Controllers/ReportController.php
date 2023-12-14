@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\SaleList;
 use App\Models\SaleListReturn;
+use App\Models\SupplierListReturn;
 use App\Models\ProductAdjustment;
 use App\Models\OrderList;
 use Illuminate\Http\Request;
@@ -147,6 +149,16 @@ class ReportController extends Controller
                     return $lists;
                 }else{
                     return inertia('Modules/Reports/Customer',['d' => $monday.' to '.$sunday]);
+                }
+            break;
+            case 'reorders':
+                $subtype = $request->subtype;
+                if($subtype == 'lists'){
+                    $products = Product::where('stock', '<', 'reorder')
+                    ->get();
+                    return $products;
+                }else{
+                    return inertia('Modules/Reports/Reorder',['d' => $monday.' to '.$sunday]);
                 }
             break;
             default : 
@@ -350,7 +362,7 @@ class ReportController extends Controller
         $monday =  date("Y-m-d", strtotime($monday));
         $sunday = date("Y-m-d", strtotime($sunday));        
 
-        $lists = SaleListReturn::with('salelist.product','status')->whereBetween('created_at', [$monday, $sunday])->get();
+        $lists = SupplierListReturn::with('salelist.product','status')->whereBetween('created_at', [$monday, $sunday])->get();
     
         if(count($lists) > 0){
             foreach($lists as $list){

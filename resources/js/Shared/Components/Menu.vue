@@ -103,6 +103,11 @@
                                 </Link>
                             </li>
                             <li class="nav-item">
+                                <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/reorders">
+                                    <span data-key="t-dashboards">Re-order Report</span>
+                                </Link>
+                            </li>
+                            <li class="nav-item">
                                 <Link class="nav-link" :class="{'active': $page.component.startsWith('Modules/Utility') }" href="/reports/sales">
                                     <span data-key="t-dashboards">Sales Report</span>
                                 </Link>

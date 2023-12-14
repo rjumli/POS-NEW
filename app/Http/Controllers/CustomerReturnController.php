@@ -40,7 +40,7 @@ class CustomerReturnController extends Controller
         });
         $message = ($request->editable) ? 'updated' : 'created';
         return back()->with([
-            'message' => 'Terms and Condition '.$message.' successfully. Thanks',
+            'message' => 'Sales '.$message.' successfully. Thanks',
             'data' => new DefaultResource($data),
             'type' => 'bxs-check-circle',
             'color' => 'success'

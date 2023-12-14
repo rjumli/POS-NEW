@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Order;
 use App\Models\OrderList;
+use App\Models\SaleList;
 use Illuminate\Http\Request;
 use App\Http\Resources\DefaultResource;
 use Illuminate\Validation\Rule;
@@ -51,13 +53,47 @@ class OrderController extends Controller
                 $data = Order::create(array_merge($request->all(),['code' => $code, 'status_id' => $status, 'total' => $total]));
                 if($data){
                     foreach($lists as $list){
+                        $product_id = $list['product']['id'];
+                        $order_list = OrderList::where('product_id',$product_id)->latest('created_at')->first();
+                        if($order_list != null){
+                            $givenDateTime = $order_list->created_at;
+                            $currentDateTime = now();
+                            $interval = $currentDateTime->diff($givenDateTime);
+                            $days = $interval->days;
+                        }
+
                         $order = new OrderList;
                         $order->order_id = $data->id;
                         $order->product_id = $list['product']['id'];
                         $order->price = $list['price'];
                         $order->quantity = $list['quantity'];
                         $order->status_id = 7;
-                        $order->save();
+
+                        if($order->save()){
+                            $product = Product::where('id',$product_id)->first();
+                            if($order_list != null){
+                                $endDate = now();
+                                $startDate = now()->modify('-30 days');
+
+                                $sales = SaleList::where('created_at', '>=', $startDate)
+                                ->where('created_at', '<=', $endDate)
+                                ->where('product_id',$product_id)
+                                ->where('status_id', 27)
+                                ->get();
+
+                                $average_sales = $sales->sum('quantity');
+
+                                $total = SaleList::where('product_id',$product_id)
+                                ->where('status_id', 27)
+                                ->get();
+
+                                $total = $total->sum('quantity');
+
+                                $reorder = ($average_sales*$days)+$total;
+                                $product->reorder = $reorder;
+                                $product->save();
+                            }
+                        }
                     }
                 }
             }

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\PackageResource;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\DefaultResource;
+use App\Http\Requests\StoreRequest;
 
 class ApiController extends Controller
 {
@@ -54,7 +55,7 @@ class ApiController extends Controller
         } 
     }
 
-    public function store(Request $request){
+    public function store(StoreRequest $request){
 
         // return response()->json(['message' => 'User created successfully']);
 

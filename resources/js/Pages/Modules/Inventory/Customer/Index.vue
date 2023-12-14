@@ -30,6 +30,7 @@
                             <th style="width: 13%;" class="text-center">Code</th>
                             <th style="width: 45%;" class="text-center">Product</th>
                             <th style="width: 20%;" class="text-center">Customer</th>
+                            <th style="width: 10%;" class="text-center">Quantity</th>
                             <th style="width: 12%;" class="text-center">Warranty</th>
                             <th style="width: 10%;" class="text-center">Action</th>
                         </tr>
@@ -39,6 +40,7 @@
                             <td class="text-center">{{ list.product.code }}</td>
                             <td class="text-center"> {{list.product.name}}</td>
                             <td class="text-center"> {{list.sale.customer.name}}</td>
+                            <td class="text-center"> {{list.quantity}}</td>
                             <td class="text-center"> {{list.warranty}}</td>
                             <td class="text-center">
                                 <b-button @click="openEdit(list)" variant="soft-primary" v-b-tooltip.hover title="Return" size="sm" class="edit-list me-1 w-xs">RETURN</b-button>

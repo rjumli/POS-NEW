@@ -34,7 +34,8 @@
                                 <td class="text-center"> {{list.stock}}</td>
                                 <td class="text-center"> {{formatMoney(list.price)}}</td>
                                 <td class="text-center">
-                                    <b-button @click="addItem(list)" variant="soft-primary" v-b-tooltip.hover title="Add Item" size="sm" class="edit-list me-1 w-xs">Add</b-button>
+                                    <b-button v-if="list.stock > 0" @click="addItem(list)" variant="soft-primary" v-b-tooltip.hover title="Add Item" size="sm" class="edit-list me-1 w-xs">Add</b-button>
+                                    <b-button v-else variant="soft-light" size="sm" class="edit-list me-1 w-xs" disabled>No Stock Available</b-button>
                                 </td>
                             </tr>
                         </tbody>

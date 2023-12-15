@@ -161,6 +161,22 @@ class ReportController extends Controller
                     return inertia('Modules/Reports/Reorder',['d' => $monday.' to '.$sunday]);
                 }
             break;
+            case 'suppliers':
+                $subtype = $request->subtype;
+                if($subtype == 'lists'){
+                    $date = $request->date;
+                    $d = (explode("to", $date));
+                    $monday = str_replace(' ','',$d[0]);
+                    $sunday = str_replace(' ','',$d[1]);
+                    $monday =  date("Y-m-d", strtotime($monday));
+                    $sunday = date("Y-m-d", strtotime($sunday));    
+
+                    $lists = SaleListReturn::with('salelist.product','status')->whereBetween('created_at', [$monday, $sunday])->get();
+                    return $lists;
+                }else{
+                    return inertia('Modules/Reports/Customer',['d' => $monday.' to '.$sunday]);
+                }
+            break;
             default : 
             return inertia('Modules/Inventory/Packages/Index');
         }

@@ -27,11 +27,11 @@ class SupplierController extends Controller
 
          $request->validate([
             'name' => 'required',
-            'contact_person' => 'required',
-            'contact_number' => 'required',
-            'address' => 'required',
-            'email' => 'required',
-            'supplier_id' => 'required',
+            'contact_person' => 'sometimes|required',
+            'contact_number' => 'sometimes|required',
+            'address' => 'sometimes|required',
+            'email' => 'sometimes|required',
+            'supplier_id' => 'sometimes|required',
         ]);
 
         $data = \DB::transaction(function () use ($request){

@@ -89,7 +89,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item" v-if="role == 'Inventory Manager' || role == 'Administrator'">
+                <li class="nav-item" v-if="role == 'Inventory Manager' || role == 'Administrator' || role == 'Owner'">
                     <b-link class="nav-link menu-link"  href="#sidebarDashboards1" :class="{'active': $page.component.startsWith('Modules/Reports') }" data-bs-toggle="collapse" role="button"
                         aria-expanded="false" aria-controls="sidebarDashboards1">
                         <i class="ri-file-text-fill"></i>

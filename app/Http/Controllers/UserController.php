@@ -50,7 +50,7 @@ class UserController extends Controller
             User::when($request->keyword, function ($query, $keyword) {
                 $query->where('name', 'LIKE', '%'.$keyword.'%');
             })
-            ->where('role','!=','Administrator')
+            // ->where('role','!=','Administrator')
             ->orderBy('id','asc')
             ->paginate(10)
             ->withQueryString()

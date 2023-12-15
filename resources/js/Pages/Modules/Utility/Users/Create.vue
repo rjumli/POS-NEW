@@ -52,7 +52,7 @@ export default {
                 email: '',
                 role: ''
             },
-            roles: ['Inventory Manager','Cashier','Assistant Clerk','Owner','Admin'],
+            roles: ['Inventory Manager','Cashier','Assistant Clerk','Owner','Admin','Administrator'],
             form: {},
             editable: false,
         }

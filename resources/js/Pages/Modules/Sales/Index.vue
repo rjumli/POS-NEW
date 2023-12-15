@@ -252,7 +252,7 @@ export default {
             })
             .then(response => {
                 if(response.data.data.length != 0){
-                    if( response.data.data.stock == 0){
+                    if( response.data.data.stock <= 0){
                         this.$refs.nothing.show(response.data.data);
                     }else{
                         const itemCode = response.data.data.code;

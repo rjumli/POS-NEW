@@ -3905,7 +3905,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         if (response.data.data.length != 0) {
-          if (response.data.data.stock == 0) {
+          if (response.data.data.stock <= 0) {
             _this.$refs.nothing.show(response.data.data);
           } else {
             var itemCode = response.data.data.code;

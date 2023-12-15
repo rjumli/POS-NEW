@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductPrice;
 use App\Models\ProductAdjustment;
 use Illuminate\Http\Request;
 use App\Rules\UniqueNameBrandCombination;
@@ -42,7 +43,15 @@ class ProductController extends Controller
                 return $data;
             }else{
                 $code = 'PRDCT'.date('Y').date('m').date('d')."-".str_pad((Product::count()+1), 4, '0', STR_PAD_LEFT);  
-                return $data = Product::create(array_merge($request->all(),['code' => $code]));
+                $data = Product::create(array_merge($request->all(),['code' => $code]));
+                if($data){
+                    $p = new ProductPrice;
+                    $p->price = $request->price;
+                    $p->product_id = $data->id;
+                    $p->is_active = 1;
+                    $p->save();
+                }
+                return $data;
             }
             
         });
@@ -88,6 +97,19 @@ class ProductController extends Controller
                 $data->stock = $data->stock - $request->quantity;
                 $data->save();
             }
+        }else if($request->type == 'price'){
+            $data = Product::where('id',$request->id)->first();
+            $data->price = $request->price;
+            if($data->save()){
+                $u = ProductPrice::where('product_id',$request->id)->update(['is_active' => 0]);
+
+                $p = new ProductPrice;
+                $p->price = $request->price;
+                $p->product_id = $request->id;
+                $p->is_active = 1;
+                $p->save();
+            }
+
         }else{
             $data = Product::where('id',$request->id)->update($request->except('id','type'));
             $data = Product::where('id',$request->id)->first();

@@ -61,6 +61,7 @@
                             <td class="text-center">
                                 <!-- <b-button @click="openView(list)" variant="soft-primary" v-b-tooltip.hover title="View Product" size="sm" class="edit-list me-1 w-xs">View</b-button> -->
                                 <!-- <b-button @click="edit(list)" variant="soft-primary" v-b-tooltip.hover title="Edit Product" size="sm" class="edit-list me-1 w-xs">Edit</b-button> -->
+                                <b-button @click="openPrice(list)" variant="dark" v-b-tooltip.hover title="Update Price" size="sm" class="edit-list me-1"><i class="ri-hand-coin-line"></i></b-button>
                                 <b-button @click="openStock(list)" variant="success" v-b-tooltip.hover title="Stock Adjustment" size="sm" class="edit-list me-1"><i class="ri-shopping-cart-2-fill"></i></b-button>
                                 <b-button @click="openStatus(list)" variant="danger" v-b-tooltip.hover title="Update Status" size="sm" class="edit-list me-1"><i class="bx bxs-hand"></i></b-button>
                                 <b-button @click="openOrder(list)" variant="info" v-b-tooltip.hover title="View Orders" size="sm" class="edit-list me-1"><i class="ri-eye-fill"></i></b-button>
@@ -74,6 +75,7 @@
             </div>
         </b-col>
     </b-row>
+    <Price ref="price"/>
     <Stock ref="stock"/>
     <View ref="view"/>
     <Order ref="order"/>
@@ -81,6 +83,7 @@
     <Create :categories="categories" :suppliers="suppliers" :units="units" :dropdowns="dropdowns" @message="fetch()" ref="create"/>
 </template>
 <script>
+import Price from './Price.vue';
 import Stock from './Stock.vue';
 import Status from './Status.vue';
 import Order from './Order.vue';
@@ -89,7 +92,7 @@ import Create from './Create.vue';
 import PageHeader from "@/Shared/Components/PageHeader.vue";
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { PageHeader, Pagination, Create, View, Order, Status, Stock },
+    components: { PageHeader, Pagination, Create, View, Order, Status, Stock, Price },
     props: ['categories','suppliers','units','dropdowns'],
     data() {
         return {
@@ -162,6 +165,9 @@ export default {
         },  
         openOrder(data){
             this.$refs.order.show(data);
+        },
+        openPrice(data){
+            this.$refs.price.set(data);
         },
         formatMoney(value) {
             let val = (value/1).toFixed(2).replace(',', '.')

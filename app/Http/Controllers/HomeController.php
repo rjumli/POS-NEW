@@ -117,7 +117,7 @@ class HomeController extends Controller
     public function update(Request $request){
 
         $validatedData = $request->validate([
-            'current_password' => 'required|current_password',
+            // 'current_password' => 'required|current_password',
             'password' => 'required|string|min:9|confirmed',
             'password_confirmation' => 'same:password',
         ]);

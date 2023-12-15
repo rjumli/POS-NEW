@@ -3737,11 +3737,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _chenfengyuan_vue_barcode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @chenfengyuan/vue-barcode */ "./node_modules/@chenfengyuan/vue-barcode/dist/vue-barcode.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Receipt_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Receipt.vue */ "./resources/js/Pages/Modules/Sales/Receipt.vue");
+/* harmony import */ var _chenfengyuan_vue_barcode__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @chenfengyuan/vue-barcode */ "./node_modules/@chenfengyuan/vue-barcode/dist/vue-barcode.esm.js");
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    VueBarcode: _chenfengyuan_vue_barcode__WEBPACK_IMPORTED_MODULE_0__["default"]
+    VueBarcode: _chenfengyuan_vue_barcode__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -3756,7 +3760,8 @@ __webpack_require__.r(__webpack_exports__);
       tax: 0,
       subtotal: 0,
       total: 0,
-      lists: []
+      lists: [],
+      currentDate: ''
     };
   },
   methods: {
@@ -3771,8 +3776,33 @@ __webpack_require__.r(__webpack_exports__);
       this.errors = [];
       this.showModal = true;
     },
-    create: function create() {
+    printReceipt: function printReceipt() {
       var _this = this;
+      var printWindow = window.open('', '_blank', 'width=600,height=400,resizable=no');
+      printWindow.document.write('<html style="width:260px; margin-bottom: 200px"><head><title>Receipt</title></head><body>');
+
+      // Your receipt content goes here
+      printWindow.document.write('<center><h3>OFFICIAL RECEIPT</h3></center>');
+      var now = new Date();
+      var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      };
+      this.currentDate = now.toLocaleDateString('en-US', options);
+      printWindow.document.write("\n            <style>                body {                    font-size: 10px;                    font-family:Calibri;                }                table {                    font-size: 10px;                    font-family:Calibri;                }            </style>            <div style=\"text-align:center\">            _________________________________________________            <br/>            POS & INVENTORY SYSTEM            <br/>            <span style=\"float: left;\">Customer:</span> <span style=\"float: right; margin-right: 0;\">" + this.customer.name + "</span>            <br/>            <span style=\"float: left;\">Date:</span> <span style=\"float: right; margin-right: 0;\">" + this.currentDate + "</span>            <br/>            <span style=\"margin-top: 20px;\">\n            _________________________________________________</span>            </div>            <table style=\"width:100%\">\n                <thead>\n                    <td>Qnty</td>\n                    <td style=\"text-align: center;\">Item</td>\n                    <td style=\"text-align: right;\">Price</td>\n                </thead>\n                <tbody>\n                    ".concat(this.lists.map(function (item) {
+        return "\n                    <tr>                        <td>" + item.quantity + "</td>                        <td style=\"text-align: center;\">" + item.name + "</td>                        <td style=\"text-align: right;\">" + _this.formatMoney(item.price) + "</td>                    </tr>                    ";
+      }).join(''), "\n                </tbody>\n            </table>\n            _________________________________________________            <span style=\"float: left;\">Subtotal:</span> <span style=\"float: right; margin-right: 0;\">") + this.formatMoney(this.subtotal) + "</span>            <br/>            <br/>            <span style=\"float: left;\">Discount:</span> <span style=\"float: right; margin-right: 0;\">" + this.formatMoney(this.discounted) + "</span>            <br/>            <span style=\"float: left;\">Tax:</span> <span style=\"float: right; margin-right: 0;\">" + this.formatMoney(this.tax) + "</span>            <br/>            <span style=\"float: left; font-weight: bold;\">Total:</span> <span style=\"float: right; font-weight: bold; margin-right: 0;\">" + this.formatMoney(this.total) + "</span>            <br/>            ");
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+
+      // Wait for the content to be rendered before printing
+      printWindow.onload = function () {
+        printWindow.print();
+      };
+    },
+    create: function create() {
+      var _this2 = this;
       this.form = this.$inertia.form({
         customer_id: this.customer ? this.customer.id : '',
         payment_id: this.payment ? this.payment.id : '',
@@ -3787,8 +3817,8 @@ __webpack_require__.r(__webpack_exports__);
       this.form.post('/sales', {
         preserveScroll: true,
         onSuccess: function onSuccess(response) {
-          _this.hide();
-          _this.$emit('clear', true);
+          _this2.hide();
+          _this2.$emit('clear', true);
         }
       });
 
@@ -4219,6 +4249,24 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=script&lang=js":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=script&lang=js ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'Receipt'
+  // Add your receipt data and methods here
 });
 
 /***/ }),
@@ -14964,7 +15012,9 @@ var _hoisted_20 = {
 var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "mdi mdi-check-bold align-middle lh-1 me-2"
 }, null, -1 /* HOISTED */);
-
+var _hoisted_22 = {
+  "class": "d-grid gap-2 mt-2"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_b_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("b-button");
   var _component_b_modal = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("b-modal");
@@ -15012,9 +15062,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           "class": "list-group-item text-danger",
           key: index
         }, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(error), 1 /* TEXT */)]);
-      }), 128 /* KEYED_FRAGMENT */))])])];
+      }), 128 /* KEYED_FRAGMENT */))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <b-button @click=\"printReceipt\" variant=\"light\">Print</b-button> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_b_button, {
+        onClick: $options.printReceipt,
+        "class": "btn-soft-dark waves-effect waves-light"
+      }, {
+        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Print Receipt")];
+        }),
+        _: 1 /* STABLE */
+      }, 8 /* PROPS */, ["onClick"])])];
     }),
-
     _: 1 /* STABLE */
   }, 8 /* PROPS */, ["modelValue"]);
 }
@@ -15942,6 +15999,35 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     _: 1 /* STABLE */
   }, 8 /* PROPS */, ["modelValue"]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=template&id=a5da29d8&scoped=true":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=template&id=a5da29d8&scoped=true ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-a5da29d8"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+var _hoisted_1 = {
+  "class": "receipt"
+};
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "Receipt", -1 /* HOISTED */);
+});
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Your receipt content goes here "), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" ... other receipt details ... ")]);
 }
 
 /***/ }),
@@ -22216,7 +22302,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.multiselect__single {\r\n    font-size: 12px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.multiselect__single {\r\n    font-size: 12px;\n}\n.receipt {\r\n      max-width: 300px;\r\n      margin: auto;\r\n      padding: 10px;\r\n      border: 1px solid #ccc;\r\n      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n      text-align: center;\n}\n.receipt-header {\r\n      text-align: center;\r\n      margin-bottom: 10px;\n}\n.receipt-items {\r\n      margin-bottom: 10px;\n}\n.item {\r\n      display: flex;\r\n      justify-content: space-between;\r\n      margin-bottom: 5px;\n}\n.receipt-total {\r\n      font-weight: bold;\r\n      margin-top: 10px;\n}\n.print-button {\r\n      margin-top: 10px;\r\n      text-align: center;\n}\r\n  ", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22313,6 +22399,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.multiselect__single {\r\n    font-size: 12px;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* Add your receipt styles here */\n.receipt[data-v-a5da29d8] {\r\n  /* Styles for the receipt */\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -23327,6 +23437,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Order_vue_vue_type_style_index_0_id_6551462a_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Receipt_vue_vue_type_style_index_0_id_a5da29d8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Receipt_vue_vue_type_style_index_0_id_a5da29d8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Receipt_vue_vue_type_style_index_0_id_a5da29d8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -25410,6 +25550,37 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Modules/Sales/Receipt.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/Pages/Modules/Sales/Receipt.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Receipt_vue_vue_type_template_id_a5da29d8_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Receipt.vue?vue&type=template&id=a5da29d8&scoped=true */ "./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=template&id=a5da29d8&scoped=true");
+/* harmony import */ var _Receipt_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Receipt.vue?vue&type=script&lang=js */ "./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=script&lang=js");
+/* harmony import */ var _Receipt_vue_vue_type_style_index_0_id_a5da29d8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css */ "./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css");
+/* harmony import */ var D_Web_Applications_FREELANCE_POS_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,D_Web_Applications_FREELANCE_POS_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Receipt_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Receipt_vue_vue_type_template_id_a5da29d8_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-a5da29d8"],['__file',"resources/js/Pages/Modules/Sales/Receipt.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Modules/Sales/Search.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/Pages/Modules/Sales/Search.vue ***!
@@ -27211,6 +27382,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=script&lang=js":
+/*!******************************************************************************!*\
+  !*** ./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=script&lang=js ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Receipt_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Receipt_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Receipt.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Modules/Sales/Search.vue?vue&type=script&lang=js":
 /*!*****************************************************************************!*\
   !*** ./resources/js/Pages/Modules/Sales/Search.vue?vue&type=script&lang=js ***!
@@ -28571,6 +28758,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=template&id=a5da29d8&scoped=true":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=template&id=a5da29d8&scoped=true ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Receipt_vue_vue_type_template_id_a5da29d8_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Receipt_vue_vue_type_template_id_a5da29d8_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Receipt.vue?vue&type=template&id=a5da29d8&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=template&id=a5da29d8&scoped=true");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Modules/Sales/Search.vue?vue&type=template&id=1feded08":
 /*!***********************************************************************************!*\
   !*** ./resources/js/Pages/Modules/Sales/Search.vue?vue&type=template&id=1feded08 ***!
@@ -29337,6 +29540,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Receipt_vue_vue_type_style_index_0_id_a5da29d8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-11.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Modules/Sales/Receipt.vue?vue&type=style&index=0&id=a5da29d8&scoped=true&lang=css");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Modules/Sales/View.vue?vue&type=style&index=0&id=403d920e&lang=css":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/Pages/Modules/Sales/View.vue?vue&type=style&index=0&id=403d920e&lang=css ***!
@@ -29629,6 +29845,8 @@ var map = {
 	"./Modules/Sales/Nothing.vue": "./resources/js/Pages/Modules/Sales/Nothing.vue",
 	"./Modules/Sales/Order": "./resources/js/Pages/Modules/Sales/Order.vue",
 	"./Modules/Sales/Order.vue": "./resources/js/Pages/Modules/Sales/Order.vue",
+	"./Modules/Sales/Receipt": "./resources/js/Pages/Modules/Sales/Receipt.vue",
+	"./Modules/Sales/Receipt.vue": "./resources/js/Pages/Modules/Sales/Receipt.vue",
 	"./Modules/Sales/Search": "./resources/js/Pages/Modules/Sales/Search.vue",
 	"./Modules/Sales/Search.vue": "./resources/js/Pages/Modules/Sales/Search.vue",
 	"./Modules/Sales/View": "./resources/js/Pages/Modules/Sales/View.vue",

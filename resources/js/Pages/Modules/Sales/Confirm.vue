@@ -41,6 +41,11 @@
                 </li>
             </ul>
         </div>
+        <!-- Buttons Grid -->
+        <div class="d-grid gap-2 mt-2" >
+        <!-- <b-button @click="printReceipt" variant="light">Print</b-button> -->
+        <b-button @click="printReceipt" class="btn-soft-dark waves-effect waves-light">Print Receipt</b-button>
+        </div>
         <template v-slot:footer>
             <b-button @click="hide()" variant="light" block>Cancel</b-button>
             <b-button @click="create('ok')" variant="primary" :disabled="form.processing" block>Save</b-button>
@@ -48,6 +53,8 @@
     </b-modal>
 </template>
 <script>
+import { createApp } from 'vue';
+import Receipt from './Receipt.vue';
 import VueBarcode from '@chenfengyuan/vue-barcode';
 export default {
     components : {VueBarcode},
@@ -64,7 +71,8 @@ export default {
             tax: 0,
             subtotal: 0,
             total: 0,
-            lists: []
+            lists: [],
+            currentDate: ''
         }
     },
     methods : {
@@ -79,6 +87,76 @@ export default {
             this.total = total;
             this.errors = [];
             this.showModal = true;
+        },
+        printReceipt() {
+            const printWindow = window.open('', '_blank', 'width=600,height=400,resizable=no');
+            printWindow.document.write('<html style="width:260px; margin-bottom: 200px"><head><title>Receipt</title></head><body>');
+
+            // Your receipt content goes here
+            printWindow.document.write('<center><h3>OFFICIAL RECEIPT</h3></center>');
+            
+            const now = new Date();
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      this.currentDate = now.toLocaleDateString('en-US', options);
+
+            printWindow.document.write(`
+            <style>\
+                body {\
+                    font-size: 10px;\
+                    font-family:Calibri;\
+                }\
+                table {\
+                    font-size: 10px;\
+                    font-family:Calibri;\
+                }\
+            </style>\
+            <div style="text-align:center">\
+            _________________________________________________\
+            <br/>\
+            POS & INVENTORY SYSTEM\
+            <br/>\
+            <span style="float: left;">Customer:</span> <span style="float: right; margin-right: 0;">` + this.customer.name + `</span>\
+            <br/>\
+            <span style="float: left;">Date:</span> <span style="float: right; margin-right: 0;">` + this.currentDate + `</span>\
+            <br/>\
+            <span style="margin-top: 20px;">
+            _________________________________________________</span>\
+            </div>\
+            <table style="width:100%">
+                <thead>
+                    <td>Qnty</td>
+                    <td style="text-align: center;">Item</td>
+                    <td style="text-align: right;">Price</td>
+                </thead>
+                <tbody>
+                    ${this.lists.map(item => `
+                    <tr>\
+                        <td>`+item.quantity+`</td>\
+                        <td style="text-align: center;">`+item.name+`</td>\
+                        <td style="text-align: right;">`+this.formatMoney(item.price)+`</td>\
+                    </tr>\
+                    `).join('')}
+                </tbody>
+            </table>
+            _________________________________________________\
+            <span style="float: left;">Subtotal:</span> <span style="float: right; margin-right: 0;">` + this.formatMoney(this.subtotal) + `</span>\
+            <br/>\
+            <br/>\
+            <span style="float: left;">Discount:</span> <span style="float: right; margin-right: 0;">` + this.formatMoney(this.discounted) + `</span>\
+            <br/>\
+            <span style="float: left;">Tax:</span> <span style="float: right; margin-right: 0;">` + this.formatMoney(this.tax) + `</span>\
+            <br/>\
+            <span style="float: left; font-weight: bold;">Total:</span> <span style="float: right; font-weight: bold; margin-right: 0;">` + this.formatMoney(this.total) + `</span>\
+            <br/>\
+            `);
+
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+
+            // Wait for the content to be rendered before printing
+            printWindow.onload = () => {
+            printWindow.print();
+      };
         },
         create(){
             this.form = this.$inertia.form({
@@ -127,4 +205,39 @@ export default {
 .multiselect__single {
     font-size: 12px;
 }
-</style>
+   
+
+    .receipt {
+      max-width: 300px;
+      margin: auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .receipt-header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .receipt-items {
+      margin-bottom: 10px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .receipt-total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .print-button {
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
